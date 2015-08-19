@@ -48,10 +48,13 @@ module ChannelAdvisor
         def does_sku_exist_list(skus)
           soap_body = {
             "ins0:accountID" => creds(:account_id),
-            "ins0:skuList" => skus
+            "ins0:skuList" => {
+              skus.each do |sku|
+                "ins0:Sku" => sku
+            }
           }
 
-          client.request :does_sku_exist_list do
+          client.request :does_skus_exist_list do
             soap.header = soap_header
             soap.body = soap_body
           end
