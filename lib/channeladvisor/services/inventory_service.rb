@@ -45,6 +45,18 @@ module ChannelAdvisor
           end
         end # update_inventory_item_quantity_and_price
 
+        def does_sku_exist_list(skus)
+          soap_body = {
+            "ins0:accountID" => creds(:account_id),
+            "ins0:skuList" => skus
+          }
+
+          client.request :does_skus_exist_list do
+            soap.header = soap_header
+            soap.body = soap_body
+          end
+        end # does_skus_exist_list
+
         def update_inventory_item_quantity_and_price_list(quantity_and_price_list)
           soap_body = {
             "ins0:accountID" => creds(:account_id),
