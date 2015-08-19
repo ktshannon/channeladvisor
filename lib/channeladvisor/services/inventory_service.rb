@@ -50,7 +50,8 @@ module ChannelAdvisor
             "ins0:accountID" => creds(:account_id),
             "ins0:skuList" => {
               skus.each do |sku|
-                "ins0:Sku" => sku
+                "ins0:string" => sku
+              end
             }
           }
 
