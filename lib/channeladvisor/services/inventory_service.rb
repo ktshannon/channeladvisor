@@ -56,7 +56,7 @@ module ChannelAdvisor
               line_items << {"ins0:SKU" => sku}
           end
 
-          client.request :does_skus_exist_list do
+          client.request :does_sku_exist_list do
             soap.header = soap_header
             soap.body = soap_body
           end
