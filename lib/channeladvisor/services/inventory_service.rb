@@ -49,7 +49,6 @@ module ChannelAdvisor
           soap_body = {
             "ins0:accountID" => creds(:account_id),
             "ins0:skuList" => []
-            }
           }
 
           line_items = soap_body["ins0:skuList"]
